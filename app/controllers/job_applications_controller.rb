@@ -1,5 +1,5 @@
-class JobApplicationsController < ApplicationController
-  before_action :set_job, only: [:update, :approve_job_applications, :reject_job_applications, :job_delete]
+ class JobApplicationsController < ApplicationController
+  # before_action :set_job, only: [:update, :approve_job_applications, :reject_job_applications, :job_delete]
 
   def index
   end
@@ -23,9 +23,10 @@ class JobApplicationsController < ApplicationController
     end
   end
 
-  def view_all_jobs
-    @jobs = @current_user.jobs
-  end
+  # def view_all_jobs
+  #   @jobs = @current_user.jobs
+  #   redirect_to @jobs
+  # end
 
   def update
     if @job.update(job_params)
@@ -38,40 +39,38 @@ class JobApplicationsController < ApplicationController
 
 
  # def view_job_applications
- #  @applied_jobs = JobSeeker.where(job_id: @current_user.jobs.ids)
+ #  @applied_jobs = JobApplication.where(job_id: @current_user.jobs.ids)
  #    render: @applied_jobs
  #  end
 
 def approve_job_applications
-  job_seeker = @job.job_seekers.find_by(id: params[:id])
+  job_seeker = @job.job_applications.find_by(id: params[:id])
   if job_seeker.present?
     job_seeker.approved!
     flash[:notice] = 'Job application approved successfully.'
     redirect_to job_path(@job)
   else
     flash[:error] = 'You are not the owner of this job'
-    redirect_back(fallback_location: root_path)
   end
 end
 
 def reject_job_applications
-  job_seeker = @job.job_seekers.find_by(id: params[:id])
+  job_seeker = @job.job_applications.find_by(id: params[:id])
   if job_seeker.present?
     job_seeker.rejected!
     flash[:notice] = 'Job application rejected successfully.'
     redirect_to job_path(@job)
   else
     flash[:error] = 'You are not the owner of this job'
-    redirect_back(fallback_location: root_path)
   end
 end
 
 def view_approved_job_applications
-  @approved_job_seekers = JobSeeker.approved
+  @approved_job_seekers = JobApplication.approved
 end
 
 def view_rejected_job_applications
-  @rejected_job_seekers = JobSeeker.rejected
+  @rejected_job_seekers = JobApplication.rejected
 end
 
 # def job_delete

@@ -19,14 +19,18 @@
      <hr>
   <% end %> -->
 
-  <%= form_with url: "/seekers/search/job", method: :get do |form| %>
-  <%= form.label :title, "Search job:" %>
+  <%= form_with url: "/search/job", method: :get do |form| %>
+  <%= form.label :title, "Search job by title:" %>
   <%= form.text_field :title %>
   <%= form.submit "Search" %>
 <% end %>
+
+  <% @seekers.each do |seeker| %>
+
   <ul>
-  <li><%= link_to "view profile" %></li>
+  <li><%= link_to "view profile", seeker_path(seeker) %></li>
 </ul>
+ <% end %>
 
 <hr>
   <% @jobs.each do |job| %>

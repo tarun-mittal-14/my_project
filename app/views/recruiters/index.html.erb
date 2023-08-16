@@ -1,16 +1,25 @@
-<ul>
-  <li><%= link_to "view profile" %></li> 
-    <li><%= link_to "your jobs" %></li>
+ HELLO RECRUITER
+
+ <% @recruiters.each do |recruiter| %>
+
+ <ul>
+  <li><%= link_to "view profile", recruiter_path(recruiter) %></li>
+  <li><%= link_to "your jobs  ","/view_job/#{recruiter.id}" %></li>
 
 </ul>
+<% end %>
+
+
+
+
 
 <hr>
-  <% @jobs.each do |job| %>
-   <b>job ID :</b> <%= job.id %><br>
-  <b> title :</b> <%= job.title %><br>
-  <b>description :</b> <%= job.description %><br>
-  <b>requirement :</b> <%= job.requirement %><br>
-   <b>location:</b> <%= job.location %><br>
- 
-     <hr>
-  <% end %>
+<% @jobs.each do |job| %>
+<b>job ID :</b> <%= job.id %><br>
+<b> title :</b> <%= job.title %><br>
+<b>description :</b> <%= job.description %><br>
+<b>requirement :</b> <%= job.requirement %><br>
+<b>location:</b> <%= job.location %><br>
+
+<hr>
+<% end %>

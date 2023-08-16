@@ -19,9 +19,8 @@ class SeekersController < ApplicationController
   end
 
   def show
-      # @seeker = Seeker.find(params[:id])
+       @seeker = Seeker.find(params[:id])
 
-  render  @seeker
 end
 
   # def show
@@ -48,7 +47,7 @@ end
 
   def search_job
     @job = Job.where("title LIKE '%#{params[:title].strip}%'")
-     redirect_to  @job
+
   end
 
   # def view_jobs
@@ -56,18 +55,21 @@ end
   #   render json: jobs
   # end
 
-  # def apply_for_job
-  #   seeker = @current_user.job_seekers.new(job_id: params[:job_id], status: 'applied')
-  #   if seeker.save
-  #     render json: { message: 'Applied successful' }
-  #   else
-  #     render json: { message: 'There is no Job related to this id ' }
-  #   end
-  # end
+  def apply_for_job
+    @seeker = @current_user.job_applications.new(job_id: params[:job_id], status: 'applied')
+    if @seeker.save
+    flash[:notice] = 'applied successfully.'
+      # render json: { message: 'Applied successful' }
+    else
+      flash[:error] = 'You are not the owner of this job'
+      redirect_to seekers_path
+      # render json: { message: 'There is no Job related to this id ' }
+    end
+  end
 
   # def view_applied_jobs
-  #   applied_jobs = @current_user.job_seekers
-  #   render json: applied_jobs
+  #   @applied_jobs = @current_user.job_seekers
+  #   render  @applied_jobs
   # end
 
   private

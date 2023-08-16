@@ -1,7 +1,7 @@
-here is your searched jobs
+your jobs
 
 <hr>
-  <% @job.each do |job| %>
+  <% @j.each do |job| %>
    <b>job ID :</b> <%= job.id %><br>
   <b> title :</b> <%= job.title %><br>
   <b>description :</b> <%= job.description %><br>
@@ -9,8 +9,10 @@ here is your searched jobs
    <b>location:</b> <%= job.location %><br>
 
 <ul>
-  <li><%= link_to "apply  " %></li>
-  <li><%= link_to "back  " ,seekers_path %></li>
+  <li><%= link_to "view job application " %></li>
+  <li><%= link_to "edit  " %></li>
+  <li><%= link_to "delete  " %></li>
+  <li><%= link_to "back  " %></li>
 
 
 
@@ -18,3 +20,4 @@ here is your searched jobs
 
      <hr>
   <% end %>
+

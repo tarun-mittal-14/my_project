@@ -98,3 +98,34 @@ Things you may want to cover:
 #   params.permit(:title, :description, :location, :requirement, :user_id)
 # end
 # end
+
+
+<!-- class ApplicationController < ActionController::Base
+  include JsonWebToken
+  # before_action :user_authenticate
+  private
+  def user_authenticate
+    header = session[:current_user].split(" ").last if session[:current_user]
+    decoded = jwt_decode(header)
+    @current_user = User.find(decoded[:user_id])
+  rescue
+      render 'users/sign_in', notice: "Invalid email & password"
+  end
+
+
+
+
+end
+ -->
+
+ <!-- <div style="color:red"><%= flash[:notice] %></div>
+<h1 style="text-align: center; color: blueviolet;"> Welcome to Portal </h1>
+<%= form_with model: @user, url:"/login", method: :post do |form| %>
+  <%= form.text_field :email %><br>
+  <%= form.label :email %><br>
+  <!-- <%= form.password_field :password %><br> -->
+    <%= form.text_field :password %><br>
+  <%= form.label :password %><br>
+  <%= form.button "Sign in" %>
+<% end %> -->
+

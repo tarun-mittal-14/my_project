@@ -1,9 +1,10 @@
 class User < ApplicationRecord
 
-  has_many :job_seekers
-  has_many :jobs
+  has_many :job_applications, dependent: :destroy
+  has_many :jobs, dependent: :destroy
 
-  has_one_attached :image
+
+  # has_one_attached :image
 
   # validates :name, :age, :email, :experience, :qualification, presence: true
   # validates :age, numericality: { greater_than_or_equal_to: 18, less_than_or_equal_to: 65 }

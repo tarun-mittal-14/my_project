@@ -1,1 +1,19 @@
-recruiter
+<b> Name:</b> <%= @recruiter.name %><br>
+    <b>email:</b> <%= @recruiter.email %><br>
+    <b>age:</b> <%= @recruiter.age %><br>
+
+   <b>qualification:</b> <%= @recruiter.qualification %><br>
+           <b>experience:</b> <%= @recruiter.experience %><br>
+
+
+   <ul>
+  <li><%= link_to "Edit", edit_recruiter_path(@recruiter) %></li>
+        <li><%= link_to "back",recruiters_path%></li>
+
+
+  <li><%= link_to "Destroy", recruiter_path(@recruiter), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+

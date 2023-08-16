@@ -1,7 +1,8 @@
 class RecruitersController < ApplicationController
-  before_action :set_recruiter, only: [:show, :edit, :update]
+  # before_action :set_recruiter, only: [:show, :edit, :update]
 
   def index
+    @recruiters = Recruiter.all
     @jobs = Job.all
   end 
 
@@ -19,6 +20,8 @@ class RecruitersController < ApplicationController
   end
 
   def show
+    @recruiter = Recruiter.find(params[:id])
+    render :show
   end
 
   def edit
@@ -30,6 +33,11 @@ class RecruitersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def view_all_jobs
+    @u = User.find(params[:id])
+    @j = @u.jobs
   end
 
   private
