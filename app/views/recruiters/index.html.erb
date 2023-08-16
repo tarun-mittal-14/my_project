@@ -1,0 +1,16 @@
+<ul>
+  <li><%= link_to "view profile" %></li> 
+    <li><%= link_to "your jobs" %></li>
+
+</ul>
+
+<hr>
+  <% @jobs.each do |job| %>
+   <b>job ID :</b> <%= job.id %><br>
+  <b> title :</b> <%= job.title %><br>
+  <b>description :</b> <%= job.description %><br>
+  <b>requirement :</b> <%= job.requirement %><br>
+   <b>location:</b> <%= job.location %><br>
+ 
+     <hr>
+  <% end %>

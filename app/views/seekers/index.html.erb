@@ -1,0 +1,42 @@
+<marquee><h1 style="color: red;">Jobs For You</h1></marquee>
+<!-- <ul>
+  <li><%= link_to "Search Job" %></li>
+</ul> -->
+<!-- <hr>
+  <% @seekers.each do |seeker| %>
+   <b>Seeker ID :</b> <%= seeker.id %><br>
+  <b> Name :</b> <%= seeker.name %><br>
+  <b>Age :</b> <%= seeker.age %><br>
+  <b>Qualification :</b> <%= seeker.qualification %><br>
+   <b>Experience:</b> <%= seeker.experience %><br>
+ <ul>
+  <li><%= link_to "Edit", edit_seeker_path(seeker) %></li>
+      <li><%= link_to "Destroy", seeker_path(seeker), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+     <hr>
+  <% end %> -->
+
+  <%= form_with url: "/seekers/search/job", method: :get do |form| %>
+  <%= form.label :title, "Search job:" %>
+  <%= form.text_field :title %>
+  <%= form.submit "Search" %>
+<% end %>
+  <ul>
+  <li><%= link_to "view profile" %></li>
+</ul>
+
+<hr>
+  <% @jobs.each do |job| %>
+   <b>job ID :</b> <%= job.id %><br>
+  <b> title :</b> <%= job.title %><br>
+  <b>description :</b> <%= job.description %><br>
+  <b>requirement :</b> <%= job.requirement %><br>
+   <b>location:</b> <%= job.location %><br>
+ <ul>
+  <li><%= link_to "Apply" %></li>
+</ul>
+     <hr>
+  <% end %>
