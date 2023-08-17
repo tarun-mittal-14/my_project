@@ -17,15 +17,15 @@ User.create(name: "hemant sahu", email: "hemant@gmail.com", password: "hemant
 123", age: "21", experience: "fresher", qualification: "BCA" , type: "Seeker")
 
 Job.create( title: "Developer", description: "Software developer",
- requirement: "knowledge of full stack ", location: "indore", user_id: "11")
+ requirement: "knowledge of full stack ", location: "indore", user_id: "16")
 
 Job.create( title: "Product Manager", description: "Lead the development of innovative products ",
- requirement: "Strong communication and project management skills ", location: "indore", user_id: "11")
+ requirement: "Strong communication and project management skills ", location: "indore", user_id: "16")
 
 Job.create( title: "Data Scientist", description: "Extract insights from complex datasets",
- requirement: "Experience with machine learning and data visualization. ", location: "indore", user_id: "12")
+ requirement: "Experience with machine learning and data visualization. ", location: "indore", user_id: "17")
 
 Job.create( title: "DevOps Engineer", description: "Build and maintain deployment pipelines",
- requirement: "Expertise in containerization and CI/CD tools ", location: "indore", user_id: "12")
+ requirement: "Expertise in containerization and CI/CD tools ", location: "indore", user_id: "17")
 
 

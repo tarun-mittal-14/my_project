@@ -16,62 +16,57 @@
   def create_jobs
     @job = @current_user.jobs.new(job_params)
     if @job.save
-      redirect_to job_path(@job)
+      redirect_to @job
     else
-      flash[:error] = @job.errors.full_messages.join(', ')
       render :new
     end
   end
 
-  # def view_all_jobs
-  #   @jobs = @current_user.jobs
-  #   redirect_to @jobs
-  # end
-
   def update
-    if @job.update(job_params)
-      redirect_to job_path(@job)
+
+    @job = @current_user.jobs.find(params[:id])
+    @job.update(job_params)
+    redirect_to  @job
+   redirect_to job_path(@job)
     else
-      flash[:error] = @job.errors.full_messages.join(', ')
       render :edit
     end
   end
 
 
- # def view_job_applications
- #  @applied_jobs = JobApplication.where(job_id: @current_user.jobs.ids)
- #    render: @applied_jobs
- #  end
-
-def approve_job_applications
-  job_seeker = @job.job_applications.find_by(id: params[:id])
-  if job_seeker.present?
-    job_seeker.approved!
-    flash[:notice] = 'Job application approved successfully.'
-    redirect_to job_path(@job)
-  else
-    flash[:error] = 'You are not the owner of this job'
+ def view_job_applications
+  @applied_jobs = JobApplication.where(job_id: @current_user.jobs.ids)
   end
-end
 
-def reject_job_applications
-  job_seeker = @job.job_applications.find_by(id: params[:id])
-  if job_seeker.present?
-    job_seeker.rejected!
-    flash[:notice] = 'Job application rejected successfully.'
-    redirect_to job_path(@job)
-  else
-    flash[:error] = 'You are not the owner of this job'
-  end
-end
+# def approve_job_applications
+#   job_seeker = @job.job_applications.find_by(id: params[:id])
+#   if job_seeker.present?
+#     job_seeker.approved!
+#     flash[:notice] = 'Job application approved successfully.'
+#     redirect_to job_path(@job)
+#   else
+#     flash[:error] = 'You are not the owner of this job'
+#   end
+# end
 
-def view_approved_job_applications
-  @approved_job_seekers = JobApplication.approved
-end
+# def reject_job_applications
+#   job_seeker = @job.job_applications.find_by(id: params[:id])
+#   if job_seeker.present?
+#     job_seeker.rejected!
+#     flash[:notice] = 'Job application rejected successfully.'
+#     redirect_to job_path(@job)
+#   else
+#     flash[:error] = 'You are not the owner of this job'
+#   end
+# end
 
-def view_rejected_job_applications
-  @rejected_job_seekers = JobApplication.rejected
-end
+# def view_approved_job_applications
+#   @approved_job_seekers = JobApplication.approved
+# end
+
+# def view_rejected_job_applications
+#   @rejected_job_seekers = JobApplication.rejected
+# end
 
 # def job_delete
 #   job = @current_user.jobs.find(params[:id])

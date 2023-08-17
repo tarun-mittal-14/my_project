@@ -1,0 +1,24 @@
+All job applications
+
+<ul>
+  <li><%= link_to "view approved", view_approved_job_applications_path %></li>
+  <li><%= link_to "view rejected",view_rejected_job_applications_path %></li>
+    <li><%= link_to "back  ", recruiters_path %></li>
+
+</ul>
+
+<hr>
+  <% @applied_jobs.each do |arr| %>
+   <b>id :</b> <%= arr.job_id %><br>
+
+<ul>
+  <li><%= link_to "approve " %></li>
+  <li><%= link_to "reject  " %></li>
+</ul>
+
+
+
+     <hr>
+  <% end %>
+
+

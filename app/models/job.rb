@@ -3,5 +3,5 @@ class Job < ApplicationRecord
 
    has_many :job_applications , dependent: :destroy
 
-  validates :title, :description, :requirement, :location, presence: true
+  # validates :title, :description, :requirement, :location, presence: true
 end

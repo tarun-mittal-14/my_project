@@ -1,0 +1,22 @@
+applied jobs list
+
+<hr>
+  <% @arr.each do |arr| %>
+   <b>title :</b> <%= arr.title %><br>
+   <b>description :</b> <%= arr.description %><br>
+   <b>requirement :</b> <%= arr.requirement %><br>
+   <b>location :</b> <%= arr.location %><br>
+
+
+
+
+     <hr>
+  <% end %>
+
+<ul>
+
+  <li><%= link_to "back",seekers_path%></li>
+
+
+
+</ul>

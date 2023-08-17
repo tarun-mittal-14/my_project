@@ -1,25 +1,26 @@
 class SeekersController < ApplicationController
 
   def index
-     @seekers = Seeker.all
-    @jobs = Job.all
-  end
+    @seekers = Seeker.all
+     # @seeker = Seeker.find(user_id: @current_user.id)
+     @jobs = Job.all
+   end
 
-  def new
+   def new
     @seeker =  Seeker.new
   end
 
   def create
     @seeker = Seeker.create(seeker_params)
     if @seeker.save
-       redirect_to @seeker
-    else
-      render :new
-    end
+     redirect_to @seeker
+   else
+    render :new
   end
+end
 
-  def show
-       @seeker = Seeker.find(params[:id])
+def show
+ @seeker = Seeker.find(params[:id])
 
 end
 
@@ -30,52 +31,49 @@ end
   #   # render json: @current_user
   # end
 
-   def edit
-        @seeker = Seeker.find(params[:id])
+  def edit
+    @seeker = Seeker.find(params[:id])
 
-   end
+  end
 
   def update
     # @current_user.update(seeker_params)
-     @seeker = Seeker.find(params[:id])
+    @seeker = Seeker.find(params[:id])
     if @seeker.update(seeker_params)
-       redirect_to @seeker
-     else
-      render :edit
-    end
+     redirect_to @seeker
+   else
+    render :edit
   end
+end
 
-  def search_job
-    @job = Job.where("title LIKE '%#{params[:title].strip}%'")
+def search_job
+  @job = Job.where("title LIKE '%#{params[:title].strip}%'")
 
-  end
+end
 
-  # def view_jobs
-  #   jobs = Job.all
-  #   render json: jobs
-  # end
 
   def apply_for_job
-    @seeker = @current_user.job_applications.new(job_id: params[:job_id], status: 'applied')
+    @seeker = @current_user.job_applications.new(job_id: params[:id], status: 'applied')
     if @seeker.save
-    flash[:notice] = 'applied successfully.'
-      # render json: { message: 'Applied successful' }
-    else
-      flash[:error] = 'You are not the owner of this job'
+      flash[:notice] = 'applied successfully rfgverg '
       redirect_to seekers_path
-      # render json: { message: 'There is no Job related to this id ' }
-    end
   end
+end
 
-  # def view_applied_jobs
-  #   @applied_jobs = @current_user.job_seekers
-  #   render  @applied_jobs
-  # end
-
-  private
-
-  def seeker_params
-    params.require(:seeker).permit(:name, :email, :password, :age,
-      :qualification, :experience)
+def view_applied_jobs
+  @current_user
+  @applied_jobs = @current_user.job_applications
+  @arr = []
+  @applied_jobs.each do |job|
+    a = Job.find(job.job_id)
+    @arr.push(a)
   end
+end
+
+private
+
+def seeker_params
+  params.require(:seeker).permit(:name, :email, :password, :age,
+    :qualification, :experience)
+end
 end
