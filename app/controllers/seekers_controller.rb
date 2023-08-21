@@ -20,16 +20,9 @@ class SeekersController < ApplicationController
 end
 
 def show
- @seeker = Seeker.find(params[:id])
+ @seeker = @current_user
 
 end
-
-  # def show
-  #       @seeker = Seeker.find(params[:id])
-  #      redirect_to @seeker
-
-  #   # render json: @current_user
-  # end
 
   def edit
     @seeker = Seeker.find(params[:id])
@@ -55,7 +48,7 @@ end
   def apply_for_job
     @seeker = @current_user.job_applications.new(job_id: params[:id], status: 'applied')
     if @seeker.save
-      flash[:notice] = 'applied successfully rfgverg '
+      flash[:notice] = 'applied successfully  '
       redirect_to seekers_path
   end
 end

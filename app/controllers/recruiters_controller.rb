@@ -13,7 +13,7 @@ class RecruitersController < ApplicationController
   def create
     @recruiter = Recruiter.new(recruiter_params)
     if @recruiter.save
-      redirect_to @recruiter, notice: 'Recruiter was successfully created.'
+      redirect_to root_path, notice: 'Recruiter was successfully created.'
     else
       render :new
     end
@@ -54,7 +54,7 @@ class RecruitersController < ApplicationController
    @approve_jobs = @current_user.jobs.find_by(id: params[:job_id]).job_applications.find_by(params[:id])
      if @approve_jobs.present?
       @approve_jobs.approved!
-      render  @approve_jobs
+      # redirect_to  @approve_jobs
     end
   end
 
@@ -66,7 +66,7 @@ class RecruitersController < ApplicationController
     @reject_jobs = @current_user.jobs.find_by(id: params[:job_id]).job_applications.find_by(params[:id])
     if @reject_jobs.present?
       @reject_jobs.rejected!
-      render  @reject_jobs
+      # redirect_to  @reject_jobs
     end
   end
 

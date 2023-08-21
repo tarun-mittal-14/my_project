@@ -1,0 +1,25 @@
+<%= form_with model: @job, method: :post , url: "/job_applications" do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+    <div>
+    <%= form.label :description %><br>
+    <%= form.text_field :description%>
+  </div>
+    <div>
+    <%= form.label :requirement %><br>
+    <%= form.text_field :requirement %>
+
+  </div>
+
+    <div>
+    <%= form.label :location %><br>
+    <%= form.text_field :location %>
+
+  </div>
+
+   <div>
+    <%= form.submit %>
+  </div>
+<% end %>

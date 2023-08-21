@@ -1,4 +1,7 @@
 <marquee><h1 style="color: red;">Jobs For You</h1></marquee>
+<h1 class="text-center mt-4" >  Listing all jobs </h1>
+
+
 
 <span style="color:green"> <%= flash[:notice] %> </span>
   <%= form_with url: "/search/job", method: :get do |form| %>
@@ -17,9 +20,13 @@
    <b>location:</b> <%= job.location %><br>
  <ul>
   <li><%= link_to "Apply","/apply/job/#{job.id}" %>
+    <div class="card-footer text-muted">
+            <small>Created <%= time_ago_in_words(job.created_at) %> ago</small>
+          </div>
 
 
    </li>
 </ul>
      <hr>
   <% end %>
+

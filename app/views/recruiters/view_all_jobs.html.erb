@@ -1,5 +1,8 @@
 your jobs
 
+     <li><%= link_to "create a new job  " ,new_job_application_path %></li>
+
+
 <hr>
   <% @j.each do |job| %>
    <b>job ID :</b> <%= job.id %><br>
@@ -7,10 +10,14 @@ your jobs
   <b>description :</b> <%= job.description %><br>
   <b>requirement :</b> <%= job.requirement %><br>
    <b>location:</b> <%= job.location %><br>
+<div class="card-footer text-muted">
+            <small>Created <%= time_ago_in_words(job.created_at) %> ago</small>
+          </div>
+
 
 <ul>
   <li><%= link_to "view job application ",  view_job_applications_path %></li>
-  <li><%= link_to "edit  " %></li>
+  <li><%= link_to "edit  " , edit_job_application_path(job.id) %></li>
   <li><%= link_to "delete  " %></li>
   <li><%= link_to "back  ", recruiters_path %></li>
 

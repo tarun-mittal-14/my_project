@@ -1,10 +1,22 @@
 
+
 <div style = "color:red"> <%= flash[:notice] %> </div>
-<h1 align="center">Welcome </h1>
+<h1 align="center">Welcome to Jobs for you  </h1>
 <%= form_with url: '/login', method: :post do |form| %>
   <%= form.label :email %>
   <%= form.text_field :email %> <br><br>
   <%= form.label :password %>
   <%= form.text_field :password %> <br><br>
   <%= form.submit 'Login' %>
+
+
+
+  <ul>
+
+  <li><%= link_to  "Seeker sign up"  ,new_seeker_path%></li>
+  <li><%= link_to  "Recruiter sign up"  ,new_recruiter_path%></li>
+
+
+
+
 <% end %>

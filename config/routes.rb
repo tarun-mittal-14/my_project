@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/logout', to: 'users#logout'
   post '/login', to: 'users#login'
    get '/welcome', to: 'users#welcome'
+     resources :job_applications
 
   # ---------------------------------------------
    get '/search/job', to: 'seekers#search_job'
@@ -22,12 +23,7 @@ Rails.application.routes.draw do
   get '/view/rejected/job/applications', to: 'recruiters#view_rejected_job_applications'
   resources :recruiters
 
- #--------------------------------------------------------------------------------------
-   post 'jobs/create/job', to: 'jobs#create_jobs'
-   post 'jobs/view/job', to: 'jobs#view_all_jobs'
-     # put 'jobs/update/job/:id', to: 'jobs#job_update'
-     delete 'jobs/delete/job/:id', to: 'jobs#job_delete'
 
-     resources :job_applications
+
 
 end

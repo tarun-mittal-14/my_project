@@ -9,11 +9,11 @@
    <ul>
   <li><%= link_to "Edit", edit_recruiter_path(@recruiter) %></li>
         <li><%= link_to "back",recruiters_path %></li>
+  <li><%= link_to "log out",root_path%></li>
+       <li><%= link_to "create a new job  " ,new_job_application_path %></li>
 
 
-  <li><%= link_to "Destroy", recruiter_path(@recruiter), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
+
+
 </ul>
 

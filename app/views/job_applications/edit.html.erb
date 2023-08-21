@@ -1,7 +1,8 @@
-<%= form_with model: @job_application do |form| %>
+<%= form_with model: @job, url: "/job_applications/#{params[:id]}", method: :patch do |form| %>
+
   <div>
     <%= form.label :title %><br>
-    <%= form.text_field :name %>
+    <%= form.text_field :title %>
   </div>
     <div>
     <%= form.label :description %><br>
@@ -23,3 +24,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+

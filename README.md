@@ -129,3 +129,15 @@ end
   <%= form.button "Sign in" %>
 <% end %> -->
 
+<li><%= link_to "Destroy", recruiter_path(@recruiter), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+
+
+</ul>
+
+   <div>
+              <p class="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
+              </p>
+            </div>
