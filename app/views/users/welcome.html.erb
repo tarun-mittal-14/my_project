@@ -1,13 +1,29 @@
+<style type="text/css">
+  .abc {
+    text-align: center;
+    margin-top: 230px;
+  }
+  form{
+    color: indigo;
+    font-weight: bold;
+  }
+
+</style>
 
 
-<div style = "color:red"> <%= flash[:notice] %> </div>
-<h1 align="center">Welcome to Jobs for you  </h1>
+ <%= flash[:notice] %>
 <%= form_with url: '/login', method: :post do |form| %>
+
+
+<section class="vh-100 bg-image"
+  style="background-image: url(<%= asset_path 'dream.jpg' %>); background-repeat: no-repeat; background-size: cover; background-position: center center">
+<h1 align="center">Welcome to Jobs for you  </h1>
+<div class="abc">
   <%= form.label :email %>
   <%= form.text_field :email %> <br><br>
   <%= form.label :password %>
   <%= form.text_field :password %> <br><br>
-  <%= form.submit 'Login' %>
+  <%= form.submit 'Login',class: 'btn btn-primary' %>
 
 
 
@@ -15,7 +31,9 @@
 
   <li><%= link_to  "Seeker sign up"  ,new_seeker_path%></li>
   <li><%= link_to  "Recruiter sign up"  ,new_recruiter_path%></li>
+</section>
 
+</div>
 
 
 
