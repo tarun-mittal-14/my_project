@@ -1,3 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">JOB FOR YOU</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
 <marquee><h1 style="color: red;">Jobs For You</h1></marquee>
 <h1 class="text-center mt-4" >  Listing all jobs </h1>
 
@@ -9,7 +33,7 @@
   <%= form.text_field :title %>
   <%= form.submit "Search" %>
 <% end %>
-<li><%= link_to "view profile", seeker_path(@current_user) %></li>
+<li><%= button_to "view profile", seeker_path(@current_user), method: :get %></li>
 
 <hr>
   <% @jobs.each do |job| %>
@@ -19,7 +43,7 @@
   <b>requirement :</b> <%= job.requirement %><br>
    <b>location:</b> <%= job.location %><br>
  <ul>
-  <li><%= link_to "Apply","/apply/job/#{job.id}" %>
+  <li><%= button_to "Apply","/apply/job/#{job.id}", method: :get %>
     <div class="card-footer text-muted">
             <small>Created <%= time_ago_in_words(job.created_at) %> ago</small>
           </div>

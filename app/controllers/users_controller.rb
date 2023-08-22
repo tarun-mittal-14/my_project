@@ -2,14 +2,14 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user
 
   def login
-
     @user = User.find_by(email: params[:email])
     # byebug
-     raise if @user.nil?
+    raise if @user.nil?
+
     if @user.type == 'Seeker'
       session[:current_user] = jwt_encode(email: @user.email)
       redirect_to seekers_path
-    elsif @user.type =='Recruiter'
+    elsif @user.type == 'Recruiter'
       session[:current_user] = jwt_encode(email: @user.email)
       redirect_to recruiters_path
     end
@@ -25,7 +25,5 @@ class UsersController < ApplicationController
     redirect_to root_url, status: :see_other
   end
 
-  def welcome
-  end
-
+  def welcome; end
 end

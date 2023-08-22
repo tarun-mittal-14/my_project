@@ -1,13 +1,11 @@
- class JobApplicationsController < ApplicationController
+class JobApplicationsController < ApplicationController
   # before_action :set_job, only: [:update, :approve_job_applications, :reject_job_applications, :job_delete]
 
-  def index
-  end
+  def index; end
 
-  def show
-  end
+  def show; end
 
-  def new 
+  def new
     @job = Job.new
   end
 
@@ -20,11 +18,8 @@
     end
   end
 
-
-def edit
-
+  def edit
     @job = @current_user.jobs.find_by(id: params[:id])
-
   end
 
   def update
@@ -48,7 +43,6 @@ def edit
   # end
 
   def job_params
-    params.require(:job).permit(:title, :description,  :requirement ,:location)
+    params.require(:job).permit(:title, :description, :requirement, :location)
   end
 end
-

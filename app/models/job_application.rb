@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JobApplication < ApplicationRecord
   belongs_to :user
   belongs_to :job
@@ -5,5 +7,5 @@ class JobApplication < ApplicationRecord
   # validates :user_id, uniqueness: {scope: :job_id}
   #  validates :status, presence: true
 
-  enum status: { approved: 'approved', rejected: 'REJECTED', applied: 'APPLIED'}
+  enum status: { approved: 'approved', rejected: 'REJECTED', applied: 'APPLIED' }
 end
