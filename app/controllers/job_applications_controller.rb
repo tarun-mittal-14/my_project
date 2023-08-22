@@ -22,7 +22,7 @@
 
 
 def edit
-  byebug
+
     @job = @current_user.jobs.find_by(id: params[:id])
 
   end
