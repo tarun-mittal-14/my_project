@@ -1,56 +1,71 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">JOB FOR YOU</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<style>
+  .navbar-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  .navbar-button {
+    background-color: burlywood;
+    color: whitesmoke;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left:52px ;
+  }
+  .navbar-button:hover {
+    background-color: grey;
+  }
+  h1{
+    text-align: center;
+    color: red;
+    text-shadow: burlywood;
+    font-style: italic;
+  }
+
+  .b1{
+    margin-left:52px ;
+  }
+
+</style>
 
 
+<h1 class="text-center mt-4" > Jobs For You </h1>
 
-<marquee><h1 style="color: red;">Jobs For You</h1></marquee>
 <h1 class="text-center mt-4" >  Listing all jobs </h1>
 
 
 
 <span style="color:green"> <%= flash[:notice] %> </span>
-  <%= form_with url: "/search/job", method: :get do |form| %>
-  <%= form.label :title, "Search job by title:" %>
-  <%= form.text_field :title %>
-  <%= form.submit "Search" %>
+<%= form_with url: "/search/job", method: :get do |form| %>
+<div class = "b1>"
+
+<%= form.label :title, "Search job by title:" %>
+<%= form.text_field :title %>
+<%= form.submit "Search" %>
 <% end %>
-<li><%= button_to "view profile", seeker_path(@current_user), method: :get %></li>
+</div><br>
+<%= button_to "view profile", seeker_path(@current_user), method: :get,class: "navbar-button"  %>
 
 <hr>
   <% @jobs.each do |job| %>
-   <b>job ID :</b> <%= job.id %><br>
+  <div class= "b1">
+  <b>job ID :</b> <%= job.id %><br>
   <b> title :</b> <%= job.title %><br>
   <b>description :</b> <%= job.description %><br>
   <b>requirement :</b> <%= job.requirement %><br>
-   <b>location:</b> <%= job.location %><br>
- <ul>
-  <li><%= button_to "Apply","/apply/job/#{job.id}", method: :get %>
-    <div class="card-footer text-muted">
-            <small>Created <%= time_ago_in_words(job.created_at) %> ago</small>
-          </div>
+  <b>location:</b> <%= job.location %><br>
+  <ul>
+      <div >
+        <small>Created <%= time_ago_in_words(job.created_at) %> ago</small>
+      </div>
+    </div>
+    <%= button_to "Apply","/apply/job/#{job.id}", method: :get,class: "navbar-button"  %>
 
 
-   </li>
-</ul>
-     <hr>
-  <% end %>
+
+
+  </ul>
+<hr>
+<% end %>
 

@@ -4,8 +4,11 @@
     margin-top: 230px;
   }
   form{
-    color: indigo;
+    color: white;
     font-weight: bold;
+  }
+  .a{
+    color: black;
   }
 
 </style>
@@ -29,8 +32,8 @@
 
   <ul>
 
-  <li><%= link_to  "Seeker sign up"  ,new_seeker_path%></li>
-  <li><%= link_to  "Recruiter sign up"  ,new_recruiter_path%></li>
+  <li><%= link_to  "Seeker sign up" ,new_seeker_path,class: "a"%></li>
+  <li><%= link_to  "Recruiter sign up"  ,new_recruiter_path,class: "a"%></li>
 </section>
 
 </div>
