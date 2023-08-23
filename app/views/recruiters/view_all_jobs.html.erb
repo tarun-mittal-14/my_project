@@ -1,29 +1,58 @@
-your jobs
+<style>
+.navbar-buttons {
+  display: flex;
+  gap: 15px;
+}
+.navbar-button {
+  background-color: burlywood;
+  color: whitesmoke;
+  border: none;
+  padding: 3px 3px;
+  border-radius: 3px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-left:52px ;
+}
+.navbar-button:hover {
+  background-color: grey;
+}
+h1{
+  text-align: center;
+  color: red;
+  text-shadow: burlywood;
+  font-style: italic;
+}
 
-     <li><%= link_to "create a new job  " ,new_job_application_path %></li>
+.b1{
+  margin-left:52px ;
+}
+</style>
+<h1>your jobs</h1>
+
+<%= link_to "create a new job  " ,new_job_application_path, class: "navbar-button" %>
 
 
 <hr>
   <% @j.each do |job| %>
+  <div class = "b1">
    <b>job ID :</b> <%= job.id %><br>
   <b> title :</b> <%= job.title %><br>
   <b>description :</b> <%= job.description %><br>
   <b>requirement :</b> <%= job.requirement %><br>
    <b>location:</b> <%= job.location %><br>
-<div class="card-footer text-muted">
+<div>
             <small>Created <%= time_ago_in_words(job.created_at) %> ago</small>
           </div>
+ </div>
 
 
-<ul>
-  <li><%= link_to "view job application ",  view_job_applications_path %></li>
-  <li><%= link_to "edit  " , edit_job_application_path(job.id) %></li>
-  <li><%= link_to "delete  " %></li>
-  <li><%= link_to "back  ", recruiters_path %></li>
+  <%= link_to "view job application ",  view_job_applications_path,class: "navbar-button" %><br>
+  <%= link_to "edit  " , edit_job_application_path(job.id),class: "navbar-button" %><br>
+  <%= link_to "back  ", recruiters_path, class: "navbar-button" %><br>
 
 
 
-</ul>
+
 
      <hr>
   <% end %>

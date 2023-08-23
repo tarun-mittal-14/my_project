@@ -1,19 +1,42 @@
-<b> Name:</b> <%= @recruiter.name %><br>
-    <b>email:</b> <%= @recruiter.email %><br>
-    <b>age:</b> <%= @recruiter.age %><br>
+<style>
 
-   <b>qualification:</b> <%= @recruiter.qualification %><br>
-           <b>experience:</b> <%= @recruiter.experience %><br>
+  .navbar-button {
+    background-color: burlywood;
+    color: whitesmoke;
+    border: none;
+    padding: 3px 5px;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left:52px ;
+  }
+  .navbar-button:hover {
+    background-color: grey;
+  }
+  h6{
+    color: ramagreen;
+    text-shadow: burlywood;
+    font-style: italic;
+    margin-left:52px ;
+    margin-top:15px ;
+  }
+</style>
+<h6>
+  <b> Name:</b> <%= @recruiter.name %><br>
+  <b>email:</b> <%= @recruiter.email %><br>
+  <b>age:</b> <%= @recruiter.age %><br>
+
+  <b>qualification:</b> <%= @recruiter.qualification %><br>
+  <b>experience:</b> <%= @recruiter.experience %><br>
+</h6>
+
+<%= link_to "Edit", edit_recruiter_path(@recruiter),class: "navbar-button" %><br>
+<%= link_to "back",recruiters_path,class: "navbar-button" %><br>
+<%= link_to "log out",root_path, class: "navbar-button" %><br>
+<%= link_to "create a new job  " ,new_job_application_path, class: "navbar-button" %>
 
 
-   <ul>
-  <li><%= link_to "Edit", edit_recruiter_path(@recruiter) %></li>
-        <li><%= link_to "back",recruiters_path %></li>
-  <li><%= link_to "log out",root_path%></li>
-       <li><%= link_to "create a new job  " ,new_job_application_path %></li>
 
 
 
-
-</ul>
 

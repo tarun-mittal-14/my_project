@@ -1,20 +1,51 @@
-All job applications
+<style>
+  .navbar-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  .navbar-button {
+    background-color: burlywood;
+    color: whitesmoke;
+    border: none;
+    padding: 3px 5px;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left:52px ;
+  }
+  .navbar-button:hover {
+    background-color: grey;
+  }
+  h1{
+    text-align: center;
+    color: ramagreen;
+    text-shadow: burlywood;
+    font-style: italic;
+  }
 
-<ul>
-  <li><%= link_to "view approved", view_approved_job_applications_path %></li>
-  <li><%= link_to "view rejected",view_rejected_job_applications_path %></li>
-    <li><%= link_to "back  ", recruiters_path %></li>
+  .b1{
+    margin-left:52px ;
+  }
+</style>
 
-</ul>
+<h1>All job applications</h1>
+
+
+ <%= link_to "view approved", view_approved_job_applications_path,class: "navbar-button" %><br>
+  <%= link_to "view rejected",view_rejected_job_applications_path,class: "navbar-button" %><br>
+    <%= link_to "back  ", recruiters_path,class: "navbar-button" %>
+
+
 
 <hr>
   <% @applied_jobs.each do |arr| %>
+  <div class= "b1">
    <b>id :</b> <%= arr.job_id %><br>
 
-<ul>
-  <li><%= link_to "approve " %></li>
-  <li><%= link_to "reject  " %></li>
-</ul>
+
+  <%= link_to "approve ", class: "navbar-button" %><br>
+  <%= link_to "reject  ", class: "navbar-button" %>
+</div>
 
 
 

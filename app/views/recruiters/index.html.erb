@@ -1,48 +1,49 @@
 <style>
-.navbar-buttons {
-  display: flex;
-  gap: 15px;
-}
-.navbar-button {
-  background-color: burlywood;
-  color: whitesmoke;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 3px;
-  text-decoration: none;
-  cursor: pointer;
-  margin-left:52px ;
-}
-.navbar-button:hover {
-  background-color: grey;
-}
-h1{
-  text-align: center;
-  color: red;
-  text-shadow: burlywood;
-  font-style: italic;
-}
+  .navbar-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  .navbar-button {
+    background-color: burlywood;
+    color: whitesmoke;
+    border: none;
+    padding: 3px 5px;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left:52px ;
+  }
+  .navbar-button:hover {
+    background-color: grey;
+  }
+  h1{
+    text-align: center;
+    color: ramagreen;
+    text-shadow: burlywood;
+    font-style: italic;
+  }
 
-.b1{
-  margin-left:52px ;
-}
+  .b1{
+    margin-left:52px ;
+  }
 </style>
- <h1>HELLO RECRUITER</h1>
-  <%= link_to "view profile", recruiter_path(@current_user),class: "navbar-button" %><br><br>
+
+  <h1>Hello Recruiter </h1>
+  <%= link_to "view profile", recruiter_path(@current_user),class: "navbar-button" %><br>
   <%= link_to "your jobs  ","/view_job/#{@current_user.id}",class: "navbar-button" %>
 
 
 
 <div>
-<hr>
-<% @jobs.each do |job| %>
-<div class= "b1" >
-<b>job ID :</b> <%= job.id %><br>
-<b> title :</b> <%= job.title %><br>
-<b>description :</b> <%= job.description %><br>
-<b>requirement :</b> <%= job.requirement %><br>
-<b>location:</b> <%= job.location %><br>
-</div>
-<hr>
-<% end %>
+  <hr>
+  <% @jobs.each do |job| %>
+  <div class= "b1" >
+    <b>job ID :</b> <%= job.id %><br>
+    <b> title :</b> <%= job.title %><br>
+    <b>description :</b> <%= job.description %><br>
+    <b>requirement :</b> <%= job.requirement %><br>
+    <b>location:</b> <%= job.location %><br>
+  </div>
+  <hr>
+  <% end %>
 </div>
